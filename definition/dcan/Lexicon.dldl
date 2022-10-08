@@ -1,0 +1,23 @@
+/ Lexicon of dcan
+/ Made by: Thimo Böhmer
+/ 2022 October
+
+Delete: SINGLE_COMMENT [/][^\n\r]*[\n\r]{0,1}
+Delete: MULTI_COMMENT  [/][*][^*]*[*][/]{0,1}
+
+/ Units
+Terminal: CURRENT       (([Cc][Uu][Rr][Rr][Ee][Nn][Tt])|([Ii])|([Aa]))
+Terminal: VOLTAGE       (([Vv][Oo][Ll][Tt][Aa][Gg][Ee])|([Uu])|([Vv]))
+Terminal: RESISTANCE    (([Rr][Ee][Ss][Ii][Ss][Tt][Aa][Nn][Cc][Ee])|([Rr]))
+
+/ Components
+Terminal: NODE          [Nn][Oo][Dd][Ee]
+Terminal: IDEAL_SOURCE  [Ss][Oo][Uu][Rr][Cc][Ee]
+Terminal: GROUND        [Gg][Rr][Oo][Uu][Nn][Dd]
+Terminal: VARNAME       [a-zA-Z_][a-zA-Z0-9_]*
+Terminal: NUMBER        [-]{0,1}[0-9]+([\.][0-9]+){0,1}
+
+Terminal: MIN [-]
+Terminal: EQ  [=]
+
+Delete: ESCAPE_CHARS [ \n\r\t\f\v\b]+

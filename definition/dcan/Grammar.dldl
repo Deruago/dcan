@@ -1,0 +1,68 @@
+/ Grammar of dcan
+/ Made by: Thimo Böhmer
+/ 2022 October
+
+program
+	stmt*
+	
+stmt
+	node_declaration
+	ground_declaration
+	source_declaration
+	assignment
+	connection
+	
+node_declaration
+	NODE node_name
+	
+ground_declaration
+	GROUND ground_name
+	
+source_declaration
+	IDEAL_SOURCE source_name
+	
+assignment
+	lhs_component_name EQ unit_value
+	
+unit_value
+	current_value
+	voltage_value
+	resistance_value
+	
+current_value
+	CURRENT value
+	value CURRENT
+	
+voltage_value
+	VOLTAGE value
+	value VOLTAGE
+	
+resistance_value
+	RESISTANCE value
+	value RESISTANCE
+
+value
+	NUMBER
+
+connection
+	component_name (MIN component_name)+
+	
+component_name
+	VARNAME
+	
+lhs_component_name
+	VARNAME
+
+rhs_component_name
+	VARNAME
+	
+source_name
+	VARNAME
+
+ground_name
+	VARNAME
+	
+node_name
+	VARNAME
+
+/
